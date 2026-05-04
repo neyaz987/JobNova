@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /recruiter/dashboard
+Disallow: /candidate/dashboard
+
+Sitemap: https://jobnova.com/sitemap.xml
