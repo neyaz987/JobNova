@@ -18,7 +18,7 @@ services:
         value: "*" # You can restrict this to your frontend URL later
 
   # Frontend Static Site
-  - type: static
+  - type: web
     name: jobnova-frontend
     env: static
     buildCommand: cd frontend && npm install && npm run build
