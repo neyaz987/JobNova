@@ -189,7 +189,7 @@ export default function JobDetailPage() {
               </div>
 
               {/* Skills */}
-              {job.skills.length > 0 && (
+              {job?.skills && job.skills.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-5">
                   {job.skills.map((s) => (
                     <span key={s.id} className="badge-indigo">{s.name}</span>

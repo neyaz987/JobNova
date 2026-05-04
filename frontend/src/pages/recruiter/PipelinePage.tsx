@@ -163,7 +163,7 @@ export default function PipelinePage() {
                           onClick={() => {
                             const slotsStr = prompt('Enter up to 3 proposed slots (ISO format, comma separated):', '')
                             if (slotsStr) {
-                              const slots = slotsStr.split(',').map(s => s.trim())
+                              const slots = (slotsStr || '').split(',').map(s => s.trim()).filter(Boolean)
                               applicationsApi.updateStatus(app.id, 'interview', 'Please pick a slot.')
                                 .then(() => {
                                   // We'll use a direct fetch to refresh since we don't have a multi-slot endpoint yet

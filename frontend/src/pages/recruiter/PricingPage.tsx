@@ -125,7 +125,7 @@ export default function PricingPage() {
               </div>
 
               <div className="space-y-4 mb-12 flex-1">
-                {plan.features.map((feature: string, idx: number) => (
+                {(plan.features || []).map((feature: string, idx: number) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="mt-1 w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                       <Check size={10} className="text-emerald-500" />

@@ -198,7 +198,7 @@ export default function RecruiterDashboard() {
                 <EmptyState icon={<Briefcase size={24} />} title="No jobs yet" />
               ) : (
                 <div className="space-y-3">
-                  {analytics?.top_jobs.map((job) => (
+                  {(analytics?.top_jobs || []).map((job) => (
                     <div key={job.id} className="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium truncate">{job.title}</p>
@@ -444,7 +444,7 @@ function PostJobForm({ onSuccess }: { onSuccess: (job: Job) => void }) {
         ...form,
         salary_min: form.salary_min ? +form.salary_min : undefined,
         salary_max: form.salary_max ? +form.salary_max : undefined,
-        skill_ids: skills.map((s) => s.id),
+        skill_ids: (skills || []).map((s) => s.id),
       }
       const { data } = await jobsApi.create(payload)
       onSuccess(data)
@@ -549,13 +549,13 @@ function PostJobForm({ onSuccess }: { onSuccess: (job: Job) => void }) {
             </div>
           )}
         </div>
-        {skills.length > 0 && (
+        {(skills || []).length > 0 && (
           <div className="flex flex-wrap gap-2 mt-2">
-            {skills.map((s) => (
-              <span key={s.id} className="badge-indigo flex items-center gap-1">
+            {(skills || []).map((s) => (
+              <span key={s.id} className="badge-indigo flex items-center gap-2">
                 {s.name}
-                <button type="button" onClick={() => setSkills((prev) => prev.filter((sk) => sk.id !== s.id))} className="ml-1 hover:text-red-400">
-                  <X size={10} />
+                <button type="button" onClick={() => setSkills(skills.filter((sk) => sk.id !== s.id))} className="hover:text-red-400">
+                  <X size={12} />
                 </button>
               </span>
             ))}

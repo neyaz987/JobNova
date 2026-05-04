@@ -165,7 +165,7 @@ export default function AssessmentPage() {
             </h2>
 
             <div className="space-y-4">
-              {currentQuestion.options.map((option: string, i: number) => (
+              {(currentQuestion?.options || []).map((option: string, i: number) => (
                 <button
                   key={i}
                   onClick={() => handleOptionSelect(i)}
