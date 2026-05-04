@@ -27,6 +27,9 @@ export interface User {
   github_url?: string
   website_url?: string
   created_at: string
+  is_verified: boolean
+  skills?: Skill[]
+  recruiter_profile?: RecruiterProfile
 }
 
 export interface CandidateProfile {
@@ -140,6 +143,7 @@ export interface Application {
   resume_filename?: string
   recruiter_notes?: string
   applied_at: string
+  created_at: string
   updated_at: string
   job?: Job
   candidate?: User

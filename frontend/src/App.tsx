@@ -29,7 +29,7 @@ function PrivateRoute({
   if (!isAuthenticated) return <Navigate to="/login" replace />
   
 
-  if (user && !user.is_verified && location.pathname !== '/verify') {
+  if (user && user.is_verified === false && location.pathname !== '/verify') {
     return <Navigate to="/verify" replace />
   }
 

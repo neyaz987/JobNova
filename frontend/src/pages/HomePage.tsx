@@ -33,9 +33,9 @@ export default function HomePage() {
     description: 'Find your dream job with JobNova AI. The next generation job portal powered by artificial intelligence.',
   })
   
-  const heroRef = useRef(null)
-  const statsRef = useRef(null)
-  const jobsRef = useRef(null)
+  const heroRef = useRef<HTMLDivElement>(null)
+  const statsRef = useRef<HTMLDivElement>(null)
+  const jobsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     jobsApi.search({ per_page: 6, page: 1 })
@@ -55,7 +55,7 @@ export default function HomePage() {
 
 
       const hero = heroRef.current
-      if (hero) {
+      if (hero && typeof hero.addEventListener === 'function') {
         hero.addEventListener('mousemove', (e: MouseEvent) => {
           const { clientX, clientY } = e
           const xPos = (clientX / window.innerWidth - 0.5) * 40

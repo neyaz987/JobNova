@@ -260,7 +260,7 @@ export default function CandidateDashboard() {
                     </div>
                   ) : (
                     <EmptyState
-                      icon={Briefcase}
+                      icon={<Briefcase size={32} />}
                       title="No applications yet"
                       description="Start your journey by applying to some jobs."
                       action={{ label: 'Explore Jobs', to: '/jobs' }}

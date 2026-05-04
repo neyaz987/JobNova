@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import {
   Briefcase, Users, TrendingUp, Eye, Plus, Edit2, Trash2,
   BarChart3, ChevronDown, ChevronRight, CheckCircle2, X,
-  Clock, FileText, Sparkles, Shield, Crown
+  Clock, FileText, Sparkles, Shield, Crown, Zap
 } from 'lucide-react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
