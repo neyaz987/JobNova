@@ -101,7 +101,7 @@ export default function RecruiterDashboard() {
     } catch { toast.error('Failed to update') }
   }
 
-  const statusPieData = analytics
+  const statusPieData = analytics?.applications_by_status
     ? Object.entries(analytics.applications_by_status).map(([name, value]) => ({ name, value }))
     : []
 
@@ -554,7 +554,7 @@ function PostJobForm({ onSuccess }: { onSuccess: (job: Job) => void }) {
             {(skills || []).map((s) => (
               <span key={s.id} className="badge-indigo flex items-center gap-2">
                 {s.name}
-                <button type="button" onClick={() => setSkills(skills.filter((sk) => sk.id !== s.id))} className="hover:text-red-400">
+                <button type="button" onClick={() => setSkills((prev) => prev.filter((sk) => sk.id !== s.id))} className="hover:text-red-400">
                   <X size={12} />
                 </button>
               </span>

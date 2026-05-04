@@ -3,10 +3,10 @@ import { useAuthStore } from '../store/authStore'
 
 const getBaseUrl = () => {
   const url = import.meta.env.VITE_API_URL || '/api/v1'
-  if (url.startsWith('http') && !url.includes('/api/v1')) {
+  if (typeof url === 'string' && url.startsWith('http') && !url.includes('/api/v1')) {
     return `${url.replace(/\/$/, '')}/api/v1`
   }
-  return url
+  return String(url)
 }
 
 const api = axios.create({
